@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DLSite Searcher</title>
+    <link rel="stylesheet" type="text/css" href="../fonts/gsans.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <div id="promptTurn" class="prompt turnPrompt">
+            <p>모바일에서 접속하시거나<br>휴대폰을 돌려주세요!</p>
+        </div>
+        <div id="promptAgree" class="prompt" style="display: none">
+            <p>
+                심장이 뛰는 정책 프로젝트는 개인정보 보호법 제15조,
+                제22조, 제24조에 따라 귀하의 개인정보를 수집합니다.
+                귀하의 개인정보는 본 프로젝트 외에는 사용되지 않으며
+                프로젝트 종료일로 부터 3년 후 즉시 파기 됩니다.
+                귀하는 개인정보제공 동의를 거부할 권리가 있으며,
+                동의 거부에 따른 불이익은 없습니다. 다만 위 제공사항은
+                세종시 청년 정책 수립에 필요한 사항이며 귀하의 정보가
+                세종 청년들의 미래에 도움이 될 수 있음을 알려드립니다.
+                <br><br>체크하지 않고 진행하시면 연령정보가 수집되지 않습니다.
+            </p>
+            <div id="promptAck">확인했어요!</div>
+        </div>
+        <div id="header">내가 만약 세종시장이라면?</div>
+        <img id="illust" src="sources/main.jpg"></div>
+        <select name="age" id="agebox">
+            <option value="10s">예비청년(10대)</option>
+            <option value="20s">초기청년(20~24)</option>
+            <option value="25s">중기청년(25~29)</option>
+            <option value="30s">후기청년(30~34)</option>
+            <option value="35s">청년이후(35~)</option>
+        </select>
+        <div id="boxAgree">
+            <div id="getPrompt">개인정보활용동의서</div>
+            <input type="checkbox" id="checkAgree">
+        </div>
+        <div id="buttonNext">다음</div>
+    </div>
+</body>
+
+</html>
