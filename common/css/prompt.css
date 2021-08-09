@@ -1,0 +1,36 @@
+@media (orientation: landscape) {
+    #promptTurn {
+        display: block;
+    }
+}
+
+@media all and (orientation: portrait) {
+    #promptTurn {
+        display: none;
+    }
+}
+
+#promptTurn {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 100;
+}
+
+#promptBox {
+    position: absolute;
+    border: 5pt black solid;
+    border-radius: 30pt;
+    width: 80vw;
+    height: 140pt;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center
+}
+
+#promptBox p {
+    font-size: 30pt;
+    line-height: 40pt;
+}

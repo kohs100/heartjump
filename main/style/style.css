@@ -30,44 +30,48 @@ body {
 
 #mainContainer{
     height: 100%;
+    height: -webkit-fill-available;
+    border-bottom: 5px solid blue;
 }
 
 #header{
     position: absolute;
-    top: 15vh;
     font-family: 'GSans';
     text-align: center;
-    width: 100vw;
+    width: 90vw;
+    left: 50%;
+    transform: translate(-50%, 0);
     font-size: 40pt;
 
-    transition: top 500ms;
+    transition: top 500ms ease-in-out, opacity 500ms ease-in-out;
+    opacity: 100%;
+    top: 15%;
 }
 
 #header.move {
-    position: absolute;
-    top: 5vh;
-    font-family: 'GSans';
-    text-align: center;
-    width: 100vw;
-    font-size: 40pt;
+    top: 5%;
+}
+
+#header.hidden {
+    opacity: 0%;
 }
 
 #illust {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    top: 23vh;
+    top: 23%;
     width: 80vw;
     height: auto;
 
-    transition: top 500ms;
+    transition: top 800ms;
 }
 
 #illust.move {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    top: 10vh;
+    top: 13%;
     width: 80vw;
     height: auto;
 }
@@ -76,10 +80,17 @@ body {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    top: calc(10vh + 60vw);
+    top: calc(13vh + 60vw);
     width: 100vw;
     text-align: center;
-    margin-top: 1vh;
+    margin-top: 1%;
+
+    transition: opacity 800ms;
+    opacity: 100%;
+}
+
+#buttonContainer.hidden {
+    opacity:0%;
 }
 
 #buttonContainer .button{
@@ -93,4 +104,43 @@ body {
     background-color: #a9d0f5;
     line-height: 7vh;
     font-size: 30pt;
+}
+
+#bridgePrompt {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: calc(10vh + 100vw);
+    width: 80vw;
+}
+.blink {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: blinkin;
+}
+
+@keyframes blinkin {
+    from {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 30%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+#bridgePrompt p {
+    font-size: 40pt;
+    width: 100%;
+    text-align: center;
+}
+
+#bridgePrompt img {
+    position: absolute;
+    width: 20vw;
+    
+    left: 50%;
+    transform: translate(-50%, 0);
 }
