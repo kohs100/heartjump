@@ -29,9 +29,13 @@ const sources = {
     },
 }
 
+const fontdefault = {
+    header: '40pt',
+    sels: '30pt'
+}
 const fontoverride = {
     bridge: {
-
+        5: '38pt'
     },
     select: {
         0: {
@@ -46,9 +50,28 @@ const fontoverride = {
             }
         },
         3: {
-            header: '28pt',
+            header: '29pt',
             sels: {}
         },
+        4: {
+            sels: {
+                1: '29pt',
+                2: '27pt',
+                3: '28pt',
+            }
+        },
+        5: {
+            header: '38pt',
+            sels: {}
+        },
+        6: {
+            sels: {
+                1: '28pt',
+                2: '28pt',
+                3: '23pt',
+                4: '26pt'
+            }
+        }
     }
 }
 
@@ -84,7 +107,7 @@ const scripts = {
             }
         },
         2: {
-            header: '프로는 식사자리에서도 놓지지 않지!<br>귀 담아 들어야 할 의견은?',
+            header: '프로는 식사자리에서도 놓치지 않지!<br>귀 담아 들어야 할 의견은?',
             sels: {
                 0: '제가 좋은 사업아이템이 있습니다.',
                 1: '요즘 집을 구하고있는데 월세는 너무 부담돼요.',
@@ -162,8 +185,15 @@ function loadImage(callback) {
 }
 
 function loadSelection() {
+    var now = fontoverride.select[currentState.phase].sels;
     for (var i = 0; i < 5; i++) {
-        getButton(i).innerHTML = scripts.select[currentState.phase].sels[i];
+        var button = getButton(i);
+        if (i in now) {
+            button.style.fontSize = now[i];
+        } else {
+            button.style.fontSize = fontdefault.sels;
+        }
+        button.innerHTML = scripts.select[currentState.phase].sels[i];
     }
 }
 
@@ -173,8 +203,18 @@ function loadHeader() {
 
     setTimeout(function () {
         if (currentState.isBridge) {
+            if(currentState.phase in fontoverride.bridge) {
+                objects.header.style.fontSize = fontoverride.select[currentState.phase].header;
+            } else {
+                objects.header.style.fontSize = fontdefault.header;
+            }
             objects.header.innerHTML = scripts.bridge[currentState.phase]
         } else {
+            if('header' in fontoverride.select[currentState.phase]) {
+                objects.header.style.fontSize = fontoverride.select[currentState.phase].header;
+            } else {
+                objects.header.style.fontSize = fontdefault.header;
+            }
             objects.header.innerHTML = scripts.select[currentState.phase].header
         }
         objects.header.classList.remove('hidden')
@@ -217,16 +257,13 @@ function unsetSelect(callback) {
 
 function renderPage() {
     currentState.transitioning = true;
+    var release = function () {
+        currentState.transitioning = false;
+    }
     if (currentState.isBridge) {
-        unsetSelect(function () {
-            console.log('mutex released');
-            currentState.transitioning = false;
-        })
+        unsetSelect(release);
     } else {
-        setSelect(function () {
-            console.log('mutex released');
-            currentState.transitioning = false;
-        })
+        setSelect(release);
     }
 }
 
