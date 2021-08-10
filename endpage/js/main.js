@@ -43,4 +43,14 @@ window.onload = function() {
         }
     };
     image_req.send();
+
+    getId('buttonSearch').onclick = function() {
+      location.href = '//www.youthcenter.go.kr/main.do';
+    }
+    getId('buttonCenter').onclick = function() {
+      location.href = '//sjnarae.or.kr/index.php';
+    }
+    getId('buttonInfo').onclick = function() {
+      location.href = '//blog.naver.com/sjyouthnet';
+    }
 }
