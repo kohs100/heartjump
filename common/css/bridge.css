@@ -1,0 +1,38 @@
+#bridgePrompt {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: calc(10vh + 100vw);
+    width: 80vw;
+}
+.blink {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: blinkin;
+}
+
+@keyframes blinkin {
+    from {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 30%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+#bridgePrompt p {
+    font-size: 40pt;
+    width: 100%;
+    text-align: center;
+}
+
+#bridgePrompt img {
+    position: absolute;
+    width: 20vw;
+    
+    left: 50%;
+    transform: translate(-50%, 0);
+}

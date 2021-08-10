@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../common/fonts/gsans.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="../common/css/prompt.css">
+    <link rel="stylesheet" type="text/css" href="../common/css/bridge.css">
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 
@@ -34,8 +35,10 @@
             <div id="promptAck">확인했어요!</div>
         </div>
         <div id="header">내가 만약 세종시장이라면?</div>
-        <img id="illust" src="sources/main.jpg"></div>
+        <img id="illust" class="illust" src="sources/main.jpg">
+        <img id="illustBridge" class="illust" src="sources/begin.jpg">
         <select name="age" id="agebox">
+            <option value="default">연령 선택</option>
             <option value="10s">예비청년(10대)</option>
             <option value="20s">초기청년(20~24)</option>
             <option value="25s">중기청년(25~29)</option>
@@ -47,6 +50,11 @@
             <input type="checkbox" id="checkAgree">
         </div>
         <div id="buttonNext">다음</div>
+
+        <div id="bridgePrompt" class="blink" style="display:none">
+            <p>터치해서 계속</p>
+            <img id="bridgeCursor" src="../common/sources/bridge.png">
+        </div>
     </div>
 </body>
 

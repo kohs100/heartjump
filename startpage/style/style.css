@@ -39,15 +39,33 @@ body {
     text-align: center;
     width: 100vw;
     font-size: 40pt;
+
+    transition: opacity 700ms ease-in-out;
 }
 
+#header.hidden {
+    opacity: 0%;
+}
+
+
 #illust {
+    z-index: 5;
+}
+
+#illust.hidden {
+    opacity: 0%;
+}
+
+.illust {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
     top: 23vh;
     width: 80vw;
     height: auto;
+
+    opacity: 100%;
+    transition: opacity 1400ms ease-in-out;
 }
 
 #agebox {
@@ -61,6 +79,13 @@ body {
     font-family: 'GSans';
     width: 60vw;
     border-radius: 15pt;
+
+    opacity: 100%;
+    transition: opacity 1400ms ease-in-out;
+}
+
+#agebox.hidden {
+    opacity: 0%;
 }
 
 #boxAgree {
@@ -73,6 +98,13 @@ body {
     width: 70vw;
     height: 55pt;
     border-radius: 15pt;
+
+    opacity: 100%;
+    transition: opacity 1400ms ease-in-out;
+}
+
+#boxAgree.hidden {
+    opacity: 0%;
 }
 
 #boxAgree div {
@@ -102,9 +134,14 @@ body {
     height: 55pt;
     line-height: 60pt;
     border-radius: 15pt;
+    transition: opacity 1400ms ease-in-out;
 }
 
-.prompt {
+#buttonNext.hidden {
+    opacity: 0%;
+}
+
+#promptAgree {
     background-color: white;
     position: absolute;
     top: 50%;
@@ -113,7 +150,7 @@ body {
     width: 80%;
     font-size: 30pt;
     overflow:scroll;
-    z-index: 1;
+    z-index: 10;
     border: black solid 3px;
     border-radius: 30px;
     padding: 30px;

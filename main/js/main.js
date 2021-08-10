@@ -219,10 +219,12 @@ function renderPage() {
     currentState.transitioning = true;
     if (currentState.isBridge) {
         unsetSelect(function () {
+            console.log('mutex released');
             currentState.transitioning = false;
         })
     } else {
         setSelect(function () {
+            console.log('mutex released');
             currentState.transitioning = false;
         })
     }
