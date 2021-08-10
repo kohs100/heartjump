@@ -10,7 +10,7 @@ window.onload = function() {
     getid('buttonNext').onclick = function() {
         if(getid('checkAgree').checked) {
             location.href = '../main/index.html?age=' + 
-            getid('agebox').selectedIndex;
+            getid('agebox').selectedIndex.toString();
         } else {
             location.href = '../main/index.html';
         }
