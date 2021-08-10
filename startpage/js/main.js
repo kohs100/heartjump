@@ -8,8 +8,7 @@ window.onload = function() {
         getid('promptAgree').style.display = 'none';
     }
     getid('buttonNext').onclick = function() {
-        console.log(getid('checkAgree').checked);
-        if(getid('checkAgree').getAttribute('checked')) {
+        if(getid('checkAgree').checked) {
             location.href = '../main/index.html?age=' + 
             getid('agebox').selectedIndex;
         } else {
