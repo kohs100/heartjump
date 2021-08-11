@@ -62,6 +62,6 @@ window.onload = function() {
       location.href = '//blog.naver.com/sjyouthnet';
     }
     getId('buttonKakao').onclick = function() {
-      location.href = '//open.kakao.com/o/qDMqyjS';
+      location.href = '//open.kakao.com/o/gDMqyjS';
     }
 }
