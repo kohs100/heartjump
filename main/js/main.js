@@ -12,7 +12,29 @@ const objects = {
         null,
         null,
         null
-    ]
+    ],
+    loading: null
+}
+
+const sources_uri = {
+    bridge: {
+        0: 'sources/bridge/0.jpg',
+        1: 'sources/bridge/1.jpg',
+        2: 'sources/bridge/2.jpg',
+        3: 'sources/bridge/3.jpg',
+        4: 'sources/bridge/4.jpg',
+        5: 'sources/bridge/5.jpg',
+        6: 'sources/bridge/6.jpg',
+    },
+    select: {
+        0: 'sources/select/0.jpg',
+        1: 'sources/select/1.jpg',
+        2: 'sources/select/2.jpg',
+        3: 'sources/select/3.jpg',
+        4: 'sources/select/4.jpg',
+        5: 'sources/select/5.jpg',
+        6: 'sources/select/6.jpg',
+    }
 }
 
 const sources = {
@@ -34,7 +56,9 @@ const sources = {
         5: 'sources/select/5.jpg',
         6: 'sources/select/6.jpg',
     },
+    loaded: 0
 }
+  
 
 const fontdefault = {
     header: '40pt',
@@ -183,6 +207,47 @@ const currentState = {
     lastSelected: null
 };
 
+function renderLoading(callback) {
+    if(sources.loaded == 14) {
+        getId('loadingContainer').style.display = 'none';
+        callback();
+    } else {
+        objects.loading.innerHTML = '로딩중입니다. ('+ sources.loaded.toString() + '/14)';
+        console.log('loaded: ' + sources.loaded);
+    }
+}
+
+function loadSources(callback) {
+    for(let i=0; i<7; i++) {
+        var image_req = new XMLHttpRequest();
+        image_req.open('GET', sources_uri.bridge[i]);
+        image_req.responseType = 'blob';
+        image_req.onload = function(e) {
+            if (e.target.status === 200) {
+                sources.bridge[i] = URL.createObjectURL(e.target.response);
+                getId('loadingContainer').style.display = 'none';
+                sources.loaded += 1;
+                renderLoading(callback);
+            }
+        };
+        image_req.send();
+    }
+    for(let i=0; i<7; i++) {
+        var image_req = new XMLHttpRequest();
+        image_req.open('GET', sources_uri.select[i]);
+        image_req.responseType = 'blob';
+        image_req.onload = function(e) {
+            if (e.target.status === 200) {
+                sources.select[i] = URL.createObjectURL(e.target.response);
+                getId('loadingContainer').style.display = 'none';
+                sources.loaded += 1;
+                renderLoading(callback);
+            }
+        };
+        image_req.send();
+    }
+}
+
 function loadImage() {
     var illust = objects.illust
     if (currentState.isBridge) {
@@ -259,7 +324,8 @@ function fadeoutSelect() {
         }
     }
     setTimeout(function() {
-        objects.selection[currentState.lastSelected].classList.add('hidden');
+        if(currentState.lastSelected != null)
+            objects.selection[currentState.lastSelected].classList.add('hidden');
     }, 600);
 }
 
@@ -332,6 +398,7 @@ window.onload = function () {
     objects.header = getId('header');
     objects.container = getId('buttonContainer');
     objects.bridge = getId('bridgePrompt');
+    objects.loading = getId('loadingMsg');
 
     objects.bridge.onclick = function () {
         if (!currentState.transitioning) {
@@ -365,5 +432,5 @@ window.onload = function () {
         })
     }
 
-    renderPage();
+    loadSources(renderPage);
 }

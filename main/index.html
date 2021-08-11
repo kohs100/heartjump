@@ -8,23 +8,8 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="../common/css/prompt.css">
     <link rel="stylesheet" type="text/css" href="../common/css/bridge.css">
+    <link rel="stylesheet" type="text/css" href="../common/css/loader.css">
     <script src="https://kit.fontawesome.com/ae391fd72f.js" crossorigin="anonymous"></script>
-
-    <link rel="preload" href="sources/bridge/0.jpg" as="image">
-    <link rel="preload" href="sources/bridge/1.jpg" as="image">
-    <link rel="preload" href="sources/bridge/2.jpg" as="image">
-    <link rel="preload" href="sources/bridge/3.jpg" as="image">
-    <link rel="preload" href="sources/bridge/4.jpg" as="image">
-    <link rel="preload" href="sources/bridge/5.jpg" as="image">
-    <link rel="preload" href="sources/bridge/6.jpg" as="image">
-
-    <link rel="preload" href="sources/select/0.jpg" as="image">
-    <link rel="preload" href="sources/select/1.jpg" as="image">
-    <link rel="preload" href="sources/select/2.jpg" as="image">
-    <link rel="preload" href="sources/select/3.jpg" as="image">
-    <link rel="preload" href="sources/select/4.jpg" as="image">
-    <link rel="preload" href="sources/select/5.jpg" as="image">
-    <link rel="preload" href="sources/select/6.jpg" as="image">
 
     <script type="text/javascript" src="js/main.js"></script>
 </head>
@@ -36,6 +21,16 @@
                 <p>모바일에서 접속하시거나<br>휴대폰을 돌려주세요!</p>
             </div>
         </div>
+
+        <div id="loadingContainer">
+            <div id="loadingIcon">
+                <div id="topLoad"></div>
+                <div id="bottomLoad"></div>
+                <div id="lineLoad"></div>
+            </div>
+            <p id="loadingMsg">로딩중입니다. (0/14)</p>
+        </div>
+
         <div id="header" style="display:none">헤더문구</div>
         <img id="illust" style="display:none">
         <div id="buttonContainer" style="display:none">

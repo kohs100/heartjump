@@ -44,11 +44,11 @@ body {
 
     transition: top 600ms linear, opacity 300ms linear;
     opacity: 100%;
-    top: 15%;
+    top: calc(23% - 100pt);
 }
 
 #header.move {
-    top: 5%;
+    top: calc(13% - 100pt);
 }
 
 #header.hidden {

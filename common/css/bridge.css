@@ -1,9 +1,10 @@
 #bridgePrompt {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: calc(10vh + 100vw);
-    width: 80vw;
+    
+    top: calc(23% + 60vw);
+
+    width: 100%;
+    bottom: 0;
 }
 .blink {
     animation-duration: 2s;
@@ -24,14 +25,21 @@
 }
 
 #bridgePrompt p {
+    position: absolute;
     font-size: 40pt;
     width: 100%;
     text-align: center;
+
+    top: calc(50% - 17vw);
+    left: 50%;
+    transform: translate(-50%, -100%);
 }
 
 #bridgePrompt img {
     position: absolute;
     width: 20vw;
+
+    top: calc(50% - 10vw);
     
     left: 50%;
     transform: translate(-50%, 0);
