@@ -31,7 +31,15 @@ window.onload = function() {
         location.href = "https://www.facebook.com/sharer/sharer.php?u=naver.com"
     }
 
-    getId('bridgePrompt').style.background = 'linear-gradient(to bottom, '+colors[typ] + ', white)'
+    var bridge = getId('bridgePrompt');
+    bridge.style.background = 'linear-gradient(to bottom, '+colors[typ] + ', white)';
+    bridge.onclick = function() {
+      window.scrollTo({
+        top: bridge.offsetTop,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
 
     var image_req = new XMLHttpRequest();
     image_req.open('GET', 'sources/typ' + typ + '.jpg');
