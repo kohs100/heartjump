@@ -175,9 +175,8 @@ const currentState = {
     age: null
 };
 
-function loadImage(callback) {
+function loadImage() {
     var illust = objects.illust
-    illust.onload = callback
     if (currentState.isBridge) {
         illust.src = sources.bridge[currentState.phase]
     } else {
@@ -199,7 +198,7 @@ function loadSelection() {
     }
 }
 
-function loadHeader() {
+function loadHeader(middle) {
     objects.header.classList.add('hidden')
     objects.header.style.display = 'block';
 
@@ -220,24 +219,24 @@ function loadHeader() {
             objects.header.innerHTML = scripts.select[currentState.phase].header
         }
         objects.header.classList.remove('hidden')
-    }, 800)
+        middle();
+    }, 300)
 }
 
 function setSelect(callback) {
     objects.illust.classList.add("move");
     objects.header.classList.add("move");
-    loadHeader();
+    loadHeader(loadImage);
 
     objects.bridge.style.display = 'none';
 
     objects.container.style.display = 'block'
     setTimeout(function () {
         loadSelection();
-        loadImage();
         objects.container.classList.remove('hidden');
 
-        setTimeout(callback, 800);
-    }, 800);
+        setTimeout(callback, 600);
+    }, 600);
 }
 
 function unsetSelect(callback) {
@@ -245,16 +244,13 @@ function unsetSelect(callback) {
     setTimeout(function () {
         objects.illust.classList.remove("move");
         objects.header.classList.remove("move");
-        loadHeader();
+        loadHeader(loadImage);
         objects.container.style.display = 'none';
         setTimeout(function () {
-            loadImage(function () {
-                objects.bridge.style.display = 'block';
-                this.onload = () => null;
-            });
+            objects.bridge.style.display = 'block';
             callback();
-        }, 800);
-    }, 800);
+        }, 600);
+    }, 600);
 }
 
 function renderPage() {
@@ -305,7 +301,6 @@ function testEnd() {
     } else {
         location.href = '../endpage/index.html?typ=' + result.toString();
     }
-    
 }
 
 window.onload = function () {

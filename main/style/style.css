@@ -42,7 +42,7 @@ body {
     transform: translate(-50%, 0);
     font-size: 40pt;
 
-    transition: top 500ms ease-in-out, opacity 500ms ease-in-out;
+    transition: top 400ms ease-in-out, opacity 200ms ease-in-out;
     opacity: 100%;
     top: 15%;
 }
@@ -63,7 +63,7 @@ body {
     width: 80vw;
     height: auto;
 
-    transition: top 800ms;
+    transition: top 500ms;
 }
 
 #illust.move {
@@ -84,7 +84,7 @@ body {
     text-align: center;
     margin-top: 1%;
 
-    transition: opacity 800ms;
+    transition: opacity 600ms;
     opacity: 100%;
 }
 
