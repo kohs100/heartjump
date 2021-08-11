@@ -42,26 +42,28 @@ window.onload = function () {
       getId('illust').src = URL.createObjectURL(image_req.response);
       getId('loadingContainer').style.display = 'none';
     }
+
+    getId('osShare').onclick = function () {
+      var file = new File([image_req.response], "result.jpg", {type: 'image/jpeg'});
+      var files = [file];
+      if (navigator.share && navigator.canShare({files: files})) {
+        navigator.share({
+          title: '내가 만약 세종시장이 된다면?!',
+          text: '세종시장의 하루 일정을 경험해보고 내가 만약 세종시장이라면 어떤 변화를 일으킬지 알아보자!',
+          url: 'https://내가만약세종시장이라면.com',
+          files: files
+        }).then(() => {
+          console.log('Shared');
+        })
+          .catch(console.error);
+      } else {
+        console.log('cannot share');
+      }
+    };
   };
   image_req.send();
 
-  getId('osShare').onclick = function () {
-    var file = new File([image_req.response], "result.jpg", {type: 'image/jpeg'});
-    var files = [file];
-    if (navigator.share && navigator.canShare({files: files})) {
-      navigator.share({
-        title: '내가 만약 세종시장이 된다면?!',
-        text: '세종시장의 하루 일정을 경험해보고 내가 만약 세종시장이라면 어떤 변화를 일으킬지 알아보자!',
-        url: 'https://내가만약세종시장이라면.com',
-        files: files
-      }).then(() => {
-        console.log('Shared');
-      })
-        .catch(console.error);
-    } else {
-      console.log('cannot share');
-    }
-  };
+  
 
   getId('fbShare').onclick = function () {
     location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com/typ" + typ + ".html"
