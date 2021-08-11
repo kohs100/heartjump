@@ -33,8 +33,8 @@ window.onload = function() {
     }
 
     getId('kakaoShare').onclick = function() {
-      Kakao.Link.sendDefault({
-        templateId: {},
+      Kakao.Link.sendCustom({
+        templateId: 58964,
         templateArgs: {
           'THU': 'https://내가만약세종시장이라면.com/common/sources/typ'+typ+'.jpg'
         }
