@@ -12,6 +12,7 @@ const colors = {
 window.onload = function() {
     const URLSearch = new URLSearchParams(location.search);
     typ = URLSearch.get('typ');
+    Kakao.init('32c3e18ad023a195dafd427c59f0503d');
 
     getId('osShare').onclick = function() {
         if (navigator.share) {
@@ -29,6 +30,15 @@ window.onload = function() {
     
     getId('fbShare').onclick = function() {
         location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com/typ"+typ+".html"
+    }
+
+    getId('kakaoShare').onclick = function() {
+      Kakao.Link.sendDefault({
+        templateId: {},
+        templateArgs: {
+          'THU': 'https://내가만약세종시장이라면.com/common/sources/typ'+typ+'.jpg'
+        }
+      });
     }
 
     var bridge = getId('bridgePrompt');
