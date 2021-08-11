@@ -28,7 +28,7 @@ window.onload = function() {
     };
     
     getId('fbShare').onclick = function() {
-        location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com"
+        location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com/typ"+typ+".html"
     }
 
     var bridge = getId('bridgePrompt');
