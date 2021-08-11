@@ -219,7 +219,6 @@ function renderLoading(callback) {
 
 function loadNext(callback) {
     var num = sources.loaded;
-    renderLoadint(callback);
     
     if(num > 13) return;
 
@@ -235,6 +234,8 @@ function loadNext(callback) {
                 sources.loaded += 1;
                 renderLoading(callback);
                 loadNext(callback);
+            } else {
+                console.log("Loading failed");
             }
         };
     } else {
@@ -246,6 +247,8 @@ function loadNext(callback) {
                 sources.loaded += 1;
                 renderLoading(callback);
                 loadNext(callback);
+            } else {
+                console.log("Loading failed");
             }
         };
     }
@@ -438,5 +441,6 @@ window.onload = function () {
         })
     }
 
+    renderLoading();
     loadNext(renderPage);
 }
