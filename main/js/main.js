@@ -208,7 +208,7 @@ const currentState = {
 };
 
 function renderLoading(callback) {
-    if(sources.loaded == 14) {
+    if(sources.loaded == 7) {
         getId('loadingContainer').style.display = 'none';
         callback();
     } else {
@@ -217,35 +217,38 @@ function renderLoading(callback) {
     }
 }
 
-function loadSources(callback) {
-    for(let i=0; i<7; i++) {
-        var image_req = new XMLHttpRequest();
-        image_req.open('GET', sources_uri.bridge[i]);
+function loadNext(callback) {
+    var num = sources.loaded;
+    
+    if(num > 13) return;
+
+    var id = parseInt(num / 2);
+    var image_req = new XMLHttpRequest();
+
+    if(num % 2 == 0) {
+        image_req.open('GET', sources_uri.bridge[id]);
         image_req.responseType = 'blob';
         image_req.onload = function(e) {
             if (e.target.status === 200) {
-                sources.bridge[i] = URL.createObjectURL(e.target.response);
-                getId('loadingContainer').style.display = 'none';
+                sources.bridge[id] = URL.createObjectURL(e.target.response);
                 sources.loaded += 1;
                 renderLoading(callback);
+                loadNext(callback);
             }
         };
-        image_req.send();
-    }
-    for(let i=0; i<7; i++) {
-        var image_req = new XMLHttpRequest();
-        image_req.open('GET', sources_uri.select[i]);
+    } else {
+        image_req.open('GET', sources_uri.select[id]);
         image_req.responseType = 'blob';
         image_req.onload = function(e) {
             if (e.target.status === 200) {
-                sources.select[i] = URL.createObjectURL(e.target.response);
-                getId('loadingContainer').style.display = 'none';
+                sources.select[id] = URL.createObjectURL(e.target.response);
                 sources.loaded += 1;
                 renderLoading(callback);
+                loadNext(callback);
             }
         };
-        image_req.send();
     }
+    image_req.send();
 }
 
 function loadImage() {
@@ -434,5 +437,5 @@ window.onload = function () {
         })
     }
 
-    loadSources(renderPage);
+    loadNext(renderPage);
 }

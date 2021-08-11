@@ -80,7 +80,10 @@
 #loadingContainer {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
     z-index: 10;
     background-color: white;
 }
