@@ -358,9 +358,9 @@ window.onload = function () {
                 if (currentState.phase == 7) {
                     testEnd();
                     // do not return
+                } else {
+                    renderPage();
                 }
-
-                renderPage();
             }
         })
     }
