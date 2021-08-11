@@ -212,7 +212,7 @@ function renderLoading(callback) {
         getId('loadingContainer').style.display = 'none';
         callback();
     } else {
-        objects.loading.innerHTML = '로딩중입니다. ('+ sources.loaded.toString() + '/14)';
+        objects.loading.innerHTML = '로딩중입니다. ('+ sources.loaded.toString() + '/7)';
         console.log('loaded: ' + sources.loaded);
     }
 }
