@@ -5,7 +5,14 @@ const objects = {
     illust: null,
     header: null,
     container: null,
-    bridge: null
+    bridge: null,
+    selection: [
+        null,
+        null,
+        null,
+        null,
+        null
+    ]
 }
 
 const sources = {
@@ -172,7 +179,8 @@ const currentState = {
     },
     answerLog: "",
     transitioning: true,
-    age: null
+    age: null,
+    lastSelected: null
 };
 
 function loadImage() {
@@ -223,24 +231,40 @@ function loadHeader(middle) {
     }, 300)
 }
 
+function fadeinSelect() {
+    for(let i=0; i<5; i++) {
+        objects.selection[i].classList.remove('hidden');
+    }
+}
+
 function setSelect(callback) {
     objects.illust.classList.add("move");
     objects.header.classList.add("move");
     loadHeader(loadImage);
+    loadSelection();
 
     objects.bridge.style.display = 'none';
 
     objects.container.style.display = 'block'
     setTimeout(function () {
-        loadSelection();
-        objects.container.classList.remove('hidden');
-
         setTimeout(callback, 600);
+        fadeinSelect();
+    }, 600);
+}
+
+function fadeoutSelect() {
+    for(let i=0; i<5; i++) {
+        if(i != currentState.lastSelected) {
+            objects.selection[i].classList.add('hidden');
+        }
+    }
+    setTimeout(function() {
+        objects.selection[currentState.lastSelected].classList.add('hidden');
     }, 600);
 }
 
 function unsetSelect(callback) {
-    objects.container.classList.add('hidden');
+    fadeoutSelect();
     setTimeout(function () {
         objects.illust.classList.remove("move");
         objects.header.classList.remove("move");
@@ -323,13 +347,14 @@ window.onload = function () {
     }
 
     for (let i = 0; i < 5; i++) {
-        getButton(i).addEventListener('click', function () {
+        objects.selection[i] = getButton(i);
+        objects.selection[i].addEventListener('click', function () {
             if (!currentState.transitioning) {
                 currentState.isBridge = true;
                 currentState.phase += 1;
                 currentState.answer[i] += 1;
                 currentState.answerLog = currentState.answerLog + i.toString();
-
+                currentState.lastSelected = i;
                 if (currentState.phase == 7) {
                     testEnd();
                     // do not return
