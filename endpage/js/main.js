@@ -16,10 +16,10 @@ window.onload = function() {
     getId('osShare').onclick = function() {
         if (navigator.share) {
             navigator.share({
-              title: 'WebShare API Demo',
-              url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+              title: '내가 만약 세종시장이 된다면?!',
+              url: 'https://내가만약세종시장이라면.com'
             }).then(() => {
-              console.log('Thanks for sharing!');
+              console.log('Shared');
             })
             .catch(console.error);
           } else {
@@ -28,7 +28,7 @@ window.onload = function() {
     };
     
     getId('fbShare').onclick = function() {
-        location.href = "https://www.facebook.com/sharer/sharer.php?u=naver.com"
+        location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com"
     }
 
     var bridge = getId('bridgePrompt');
