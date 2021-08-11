@@ -365,6 +365,8 @@ function testEnd() {
     var max = 1;
     var maxs = [];
 
+    fadeoutSelect();
+
     for (let i = 0; i < 5; i++) {
         if (currentState.answer[i] > max) {
             max = currentState.answer[i];
