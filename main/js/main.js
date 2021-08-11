@@ -219,6 +219,7 @@ function renderLoading(callback) {
 
 function loadNext(callback) {
     var num = sources.loaded;
+    renderLoadint(callback);
     
     if(num > 13) return;
 
