@@ -53,4 +53,7 @@ window.onload = function() {
     getId('buttonInfo').onclick = function() {
       location.href = '//blog.naver.com/sjyouthnet';
     }
+    getId('buttonKakao').onclick = function() {
+      location.href = '//open.kakao.com/o/qDMqyjS';
+    }
 }
