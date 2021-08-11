@@ -292,22 +292,18 @@ function testEnd() {
 
     const record = new XMLHttpRequest();
     record.open('POST', 'https://backend.xn--o39a52g32gwpcbya401a9zc17go7e8nan3f.com/result');
-    record.setRequestHeader("Content-Type", "application/json");
     record.setRequestHeader("x-api-key", "fvxGvMSHyI4ozf2y3GvrJ6VO5LRDvFn9agmqjlz6");
     record.onload = function() {
-        //location.href = '../endpage/index.html?typ=' + result.toString();
-        console.log(record.status);
-        console.log(record.response);
+        location.href = '../endpage/index.html?typ=' + result.toString();
     }
     if(currentState.age != 0) {
         record.send(JSON.stringify({
-            "age": currentState.age,
+            "age": parseInt(currentState.age),
             "result": result,
-            "answer": answerLog
+            "answer": currentState.answerLog
         }))
     } else {
-        //location.href = '../endpage/index.html?typ=' + result.toString();
-        console.log("no age");
+        location.href = '../endpage/index.html?typ=' + result.toString();
     }
     
 }
@@ -334,13 +330,16 @@ window.onload = function () {
     for (let i = 0; i < 5; i++) {
         getButton(i).addEventListener('click', function () {
             if (!currentState.transitioning) {
-                if (currentState.phase == 6) {
-                    testEnd();
-                    // do not return
-                }
                 currentState.isBridge = true;
                 currentState.phase += 1;
                 currentState.answer[i] += 1;
+                currentState.answerLog = currentState.answerLog + i.toString();
+
+                if (currentState.phase == 7) {
+                    testEnd();
+                    // do not return
+                }
+
                 renderPage();
             }
         })
