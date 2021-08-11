@@ -208,7 +208,7 @@ const currentState = {
 };
 
 function renderLoading(callback) {
-    if(sources.loaded == 7) {
+    if(sources.loaded == 8) {
         getId('loadingContainer').style.display = 'none';
         callback();
     } else {
