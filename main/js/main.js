@@ -170,6 +170,7 @@ const currentState = {
         3: 0,
         4: 0
     },
+    answerLog: "",
     transitioning: true,
     age: null
 };
@@ -287,7 +288,28 @@ function testEnd() {
         }
     }
 
-    location.href = '../endpage/index.html?typ=' + choice(maxs).toString()
+    var result = choice(maxs)
+
+    const record = new XMLHttpRequest();
+    record.open('POST', 'https://backend.xn--o39a52g32gwpcbya401a9zc17go7e8nan3f.com/result');
+    record.setRequestHeader("Content-Type", "application/json");
+    record.setRequestHeader("x-api-key", "fvxGvMSHyI4ozf2y3GvrJ6VO5LRDvFn9agmqjlz6");
+    record.onload = function() {
+        //location.href = '../endpage/index.html?typ=' + result.toString();
+        console.log(record.status);
+        console.log(record.response);
+    }
+    if(currentState.age != 0) {
+        record.send(JSON.stringify({
+            "age": currentState.age,
+            "result": result,
+            "answer": answerLog
+        }))
+    } else {
+        //location.href = '../endpage/index.html?typ=' + result.toString();
+        console.log("no age");
+    }
+    
 }
 
 window.onload = function () {

@@ -120,27 +120,9 @@ p3 {
     align-items: center;
 }
 
-#shareBox > div {
-    background-size: cover;
-    background-repeat: no-repeat;
+#shareBox img {
     height: 15vw;
     width: 15vw;
-}
-
-#kakaoShare {
-    background-image: url('../sources/logo/kakao.png');
-}
-
-#fbShare {
-    background-image: url('../sources/logo/fb.png');
-}
-
-#instaShare {
-    background-image: url('../sources/logo/insta.png');
-}
-
-#osShare {
-    background-image: url('../sources/logo/share.png');
 }
 
 #logoContainer {

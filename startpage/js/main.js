@@ -44,20 +44,12 @@ window.onload = function() {
         }
     }
 
-    var startContent = function() {
-        if(getid('checkAgree').checked) {
-            
-        } else {
-            location.href = '../main/index.html';
-        }
-    }
-
     bridgePrompt.onclick = function() {
         location.href = '../main/index.html?age=' + currentState.age.toString();
     }
 
     buttonNext.addEventListener('click', function() {
-        if(!currentState.isBridge && currentState.isChecked) {
+        if(currentState.isChecked && currentState.age != 0 && !currentState.isBridge) {
             currentState.isBridge = true;
 
             var origin = getid('illust');
