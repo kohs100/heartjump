@@ -57,7 +57,7 @@ window.onload = function () {
 
             var blob = new File([csv], "Heartjump.csv", {type: "text/csv"});
             var url = URL.createObjectURL(blob);
-            result.innerHTML = "<a href='" + url + "' download='heartjump.csv'>CSV 다운로드</a>"
+            result.innerHTML = "표본수: " + resp.length.toString() + "<br><a href='" + url + "' download='heartjump.csv'>CSV 다운로드</a>"
 
         }, function(status) {
             result.innerHTML = "DB Backend Error: " + status.toString()
