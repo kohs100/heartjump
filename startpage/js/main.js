@@ -54,9 +54,11 @@ window.onload = function() {
 
             var origin = getid('illust');
             var header = getid('header');
+            var bridge = getid('illustBridge');
+
+            bridge.style.display = 'block';
 
             header.classList.add('hidden');
-
             origin.classList.add('hidden');
             buttonNext.classList.add('hidden');
             agebox.classList.add('hidden');
@@ -72,10 +74,10 @@ window.onload = function() {
                 agebox.style.display = 'none';
                 checkbox.style.display = 'none';
                 agreebox.style.display = 'none';
-            }, 700);
+            }, 300);
             setTimeout(function() {
                 bridgePrompt.style.display = 'block';
-            }, 1400);
+            }, 600);
         }
     })
 

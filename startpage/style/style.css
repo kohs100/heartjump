@@ -40,13 +40,12 @@ body {
     width: 100vw;
     font-size: 40pt;
 
-    transition: opacity 700ms ease-in-out;
+    transition: opacity 300ms;
 }
 
 #header.hidden {
     opacity: 0%;
 }
-
 
 #illust {
     z-index: 5;
@@ -65,7 +64,7 @@ body {
     height: auto;
 
     opacity: 100%;
-    transition: opacity 1400ms ease-in-out;
+    transition: opacity 600ms;
 }
 
 #agebox {
@@ -81,7 +80,7 @@ body {
     border-radius: 15pt;
 
     opacity: 100%;
-    transition: opacity 1400ms ease-in-out;
+    transition: opacity 600ms;
 }
 
 #agebox.hidden {
@@ -100,7 +99,7 @@ body {
     border-radius: 15pt;
 
     opacity: 100%;
-    transition: opacity 1400ms ease-in-out;
+    transition: opacity 600ms;
 }
 
 #boxAgree.hidden {
@@ -134,7 +133,7 @@ body {
     height: 55pt;
     line-height: 60pt;
     border-radius: 15pt;
-    transition: opacity 1400ms ease-in-out;
+    transition: opacity 600ms;
 }
 
 #buttonNext.hidden {
