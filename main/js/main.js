@@ -388,7 +388,10 @@ function testEnd() {
     const record = new XMLHttpRequest();
     record.open('POST', 'https://backend.xn--o39a52g32gwpcbya401a9zc17go7e8nan3f.com/result');
     record.setRequestHeader("x-api-key", "fvxGvMSHyI4ozf2y3GvrJ6VO5LRDvFn9agmqjlz6");
-    record.onload = function() {
+    record.onload = function(e) {
+        location.href = '../endpage/index.html?typ=' + result.toString();
+    }
+    record.onerror = function(e) {
         location.href = '../endpage/index.html?typ=' + result.toString();
     }
     if(currentState.age != 0) {
