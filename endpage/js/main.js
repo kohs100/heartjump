@@ -44,8 +44,8 @@ window.onload = function () {
     }
 
     getId('osShare').onclick = function () {
-      var file = new File([image_req.response], "result.jpg", {type: 'image/jpeg'});
-      var files = [file];
+      let file = new File([image_req.response], "result.jpg", {type: 'image/jpeg'});
+      let files = [file];
       if (navigator.share && navigator.canShare({files: files})) {
         navigator.share({
           title: '내가 만약 세종시장이 된다면?!',
@@ -66,7 +66,7 @@ window.onload = function () {
   
 
   getId('fbShare').onclick = function () {
-    location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이된다면.com/typ" + typ + ".html"
+    location.href = "https://www.facebook.com/sharer/sharer.php?u=내가만약세종시장이라면.com/typ" + typ + ".html"
   }
 
   getId('kakaoShare').onclick = function () {
