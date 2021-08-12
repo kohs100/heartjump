@@ -24,7 +24,6 @@ body {
     top: calc(100vw * 7087 / 4724);
     width: 100vw;
     height: 30vw;
-    background: linear-gradient(to bottom, #50BCDF,white);
 }
 
 .blink {
