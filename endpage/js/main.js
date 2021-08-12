@@ -22,8 +22,6 @@ window.onload = function () {
   typ = URLSearch.get('typ');
   Kakao.init('32c3e18ad023a195dafd427c59f0503d');
 
-
-
   var bridge = getId('bridgePrompt');
   bridge.style.background = 'linear-gradient(to bottom, ' + colors[typ] + ', white)';
   bridge.onclick = function () {

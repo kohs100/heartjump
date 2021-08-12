@@ -1,0 +1,60 @@
+html, body{
+    display: block;
+    margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+input {outline: none;
+    border: none}
+
+#mainContainer{
+    background-color: #252525;
+}
+
+#header{
+    width: 100vw;
+    height: 15vh;
+}
+
+#footer{
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#copyright{
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+.sideMargin{
+    width: 10vw;
+    height: 70vh;
+}
+
+#centerContainer{
+    display: flex;
+}
+
+/*--아래부터 콘텐츠 컨테이너, 비디오-----------------------*/
+
+#contentContainer{
+    background-color: #1E1E1E;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+#result {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    color: white;
+    transform: translate(-50%, -50%);
+}
