@@ -153,7 +153,7 @@ const scripts = {
             sels: {
                 0: '#퇴근#칼퇴#워라벨#욜로',
                 1: '#내집마련#내돈내산#우리집#2PM',
-                2: '#대졸#고졸#취업#자기개발',
+                2: '#대졸#고졸#취업#자기계발',
                 3: '#건강검진#건강#운동#다이어트',
                 4: '#살기좋은도시#위촉장#위원회',
             }
@@ -212,7 +212,7 @@ function renderLoading(callback) {
         getId('loadingContainer').style.display = 'none';
         callback();
     } else {
-        objects.loading.innerHTML = '로딩중입니다. ('+ sources.loaded.toString() + '/7)';
+        objects.loading.innerHTML = '출근 중 입니다. ('+ sources.loaded.toString() + '/7)';
         console.log('loaded: ' + sources.loaded);
     }
 }
