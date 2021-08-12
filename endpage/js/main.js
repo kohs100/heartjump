@@ -83,4 +83,7 @@ window.onload = function () {
   getId('buttonKakao').onclick = function () {
     location.href = '//open.kakao.com/o/gDMqyjS';
   }
+  getId('retryBtn').onclick = function () {
+    location.href = '/startpage';
+  }
 }
