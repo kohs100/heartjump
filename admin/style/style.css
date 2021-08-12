@@ -50,11 +50,14 @@ input {outline: none;
     justify-content: center;
     align-items: center;
 }
+
 #result {
     position: absolute;
     left: 50%;
     top: 50%;
     text-align: center;
     color: white;
+    font-size: large;
     transform: translate(-50%, -50%);
+    font-size: xx-large;
 }
