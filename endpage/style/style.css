@@ -87,6 +87,10 @@ body {
     text-align: center;
 }
 
+#credit a {
+    color: black;
+}
+
 p1 {
     font-family: GSansBold;
     font-size: 40pt;
